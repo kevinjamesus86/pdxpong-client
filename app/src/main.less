@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+@-webkit-viewport   { width: device-width; }
+@viewport           { width: device-width; }
+
+
+////////////////////////
+// opinionated defaults?
+////////////////////////
+
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 13px;
+    min-width: 320px;
+    box-sizing: border-box;
+    background-color: #f3f5f7;
+}
+
+body {
+    color: #323a45;
+    font: 400 1em/1.6 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    cursor: default;
+}
+
+/* contain margins */
+body::after,
+body::before {
+    content: " ";
+    display: table;
+}

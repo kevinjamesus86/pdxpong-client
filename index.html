@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pdxpong-client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+<body ng-csp ng-strict-di>
+
+    <main msg="Hey thur">
+
+        <h1>
+            loading&hellip;
+        </h1>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.1/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+    <script>
+        require(['app/require/rconf'], function(config) {
+            'use strict';
+
+            require.config(config);
+
+            require([
+                'angular',
+                'app/main'
+            ], function bootstrapApp(angular, main) {
+                angular.bootstrap(document.body, [main.name]);
+            });
+        });
+    </script>
+</body>
+</html>

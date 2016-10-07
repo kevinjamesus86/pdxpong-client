@@ -1,0 +1,14 @@
+{
+  "name": "pdxpong-client",
+  "version": "1.0.0",
+  "description": "client stuff for pdxpong app",
+  "scripts": {},
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-sanitize": "1.5.8",
+    "angular-ui-router": "0.3.1",
+    "lodash": "4.16.4"
+  }
+}
