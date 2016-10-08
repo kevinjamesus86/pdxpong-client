@@ -2,11 +2,12 @@ default:
 - build
 
 build:
+- clean
 - eslint
 - webpack
+- uglify
 
 dev:
-- eslint
-- webpack
-- connect:server
+- build
+- connect
 - watch

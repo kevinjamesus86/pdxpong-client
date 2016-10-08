@@ -1,14 +1,24 @@
+// common dependencies
 import angular from 'angular';
 import ngAnimate from 'angular-animate';
 import ngSanitize from 'angular-sanitize';
 import uiRouter from 'angular-ui-router';
 
-const module = angular.module('pdxpong', [
+// styles
+import './main.less';
+
+// pdxpong app
+import pdxpong from './src/pdxpong';
+
+// app to strap
+const module = angular.module('pdxpong-app', [
+    pdxpong,
     ngAnimate,
     ngSanitize,
     uiRouter
 ]);
 
+// general perf
 module.config([
     '$compileProvider',
     '$rootScopeProvider',
@@ -18,21 +28,7 @@ function($compileProvider, $rootScopeProvider) {
     $rootScopeProvider.digestTtl(5);
 }]);
 
-
-////////////////
-// strap up main
-////////////////
-
-
-import templateUrl from './main.html';
-
-module.component('main', {
-    templateUrl,
-    bindings: {
-        msg: '@'
-    }
-});
-
+// hit it
 angular.element(window).ready(function() {
     angular.bootstrap(document.body, [ module.name ]);
 });

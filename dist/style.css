@@ -1,0 +1,54 @@
+/* Include this file in your html if you are using the CSP mode. */
+
+@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+@-webkit-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 13px;
+  min-width: 320px;
+  box-sizing: border-box;
+  background-color: #f3f5f7;
+}
+body {
+  color: #323a45;
+  font: 400 1em/1.6 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  cursor: default;
+}
+/* contain margins */
+body::after,
+body::before {
+  content: " ";
+  display: table;
+}
