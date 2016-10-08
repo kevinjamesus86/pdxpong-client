@@ -1,0 +1,12 @@
+default:
+- build
+
+build:
+- eslint
+- webpack
+
+dev:
+- eslint
+- webpack
+- connect:server
+- watch

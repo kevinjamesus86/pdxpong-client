@@ -24,6 +24,7 @@ coverage
 build/Release
 
 # Dependency directories
+.tmp
 app/components
 app/bower_components
 node_modules
