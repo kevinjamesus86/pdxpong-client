@@ -66,6 +66,44 @@ webpackJsonp([0],{
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _angular = __webpack_require__(5);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _navHeader = __webpack_require__(27);
+
+	var _navHeader2 = _interopRequireDefault(_navHeader);
+
+	var _pdxpong = __webpack_require__(29);
+
+	var _pdxpong2 = _interopRequireDefault(_pdxpong);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import Leaderboard from './components/leaderboard/leaderboard';
+
+	var _module = _angular2.default.module('pdxpong', [_navHeader2.default.name,
+	// Leaderboard.name,
+	'ui.router']);
+	exports.default = _module.name;
+
+
+	_module.component('main', {
+	    templateUrl: _pdxpong2.default,
+	    bindings: {}
+	});
+
+/***/ },
+
+/***/ 27:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
@@ -73,43 +111,43 @@ webpackJsonp([0],{
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _pdxpong = __webpack_require__(27);
+	var _navHeader = __webpack_require__(28);
 
-	var _pdxpong2 = _interopRequireDefault(_pdxpong);
+	var _navHeader2 = _interopRequireDefault(_navHeader);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import NavHeader from './components/nav-header/nav-header';
-	// import Leaderboard from './components/leaderboard/leaderboard';
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _module = _angular2.default.module('pdxpong', [
-	// NavHeader.name,
-	// Leaderboard.name,
-	'ui.router']);
-	exports.default = _module.name;
+	var NavHeader = function NavHeader() {
+	  _classCallCheck(this, NavHeader);
+	};
 
-
-	_module.component('main', {
-	  templateUrl: _pdxpong2.default,
-	  bindings: {}
-	}).run(run).config(config);
-
-	function config($locationProvider, $urlRouterProvider) {
-	  $locationProvider.html5Mode(true);
-	  $urlRouterProvider.otherwise('/leaderboard');
-	}
-
-	function run($rootScope, $state) {
-	  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-	    if (error === 'AUTH_REQUIRED') {
-	      $state.go('leaderboard');
-	    }
-	  });
-	}
+	var name = 'navHeader';
+	exports.default = _angular2.default.module(name, []).component(name, {
+	  templateUrl: _navHeader2.default,
+	  controller: NavHeader
+	});
 
 /***/ },
 
-/***/ 27:
+/***/ 28:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = 'app/src/components/nav-header/nav-header.html';
+
+	angular.module('ng').run(['$templateCache', function ($templateCache) {
+	    $templateCache.put('app/src/components/nav-header/nav-header.html', "<nav><a href alt=\"New Game\" class=logo></a><a href>Person's Name</a></nav>");
+	}]);
+
+/***/ },
+
+/***/ 29:
 /***/ function(module, exports) {
 
 	'use strict';
