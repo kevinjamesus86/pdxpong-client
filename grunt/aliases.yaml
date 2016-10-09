@@ -3,6 +3,7 @@ default:
 
 build:
 - clean
+- copy
 - eslint
 - webpack
 - uglify

@@ -10,10 +10,19 @@ module.exports = {
             'uglify'
         ]
     },
-    splat: {
-        files: 'index.html',
-        options: {
-            reload: true
-        }
+    less: {
+        files: 'app/**/*.less',
+        tasks: ['webpack']
+    },
+    nghtml: {
+        files: 'app/src/**/*.html',
+        tasks: [
+            'webpack',
+            'uglify'
+        ]
+    },
+    index: {
+        files: 'app/index.html',
+        tasks: ['copy:index']
     }
 };
