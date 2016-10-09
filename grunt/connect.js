@@ -8,14 +8,11 @@ module.exports = {
         options: {
             open: true,
             livereload: true,
+            base: 'dist',
             middleware(connect, opt, wares) {
-                return wares.concat(
-                    log({ format: '%date %status %method %url' }),
-                    html5({
-                        index: '/index.html',
-                        htmlAcceptHeaders: ['text/html']
-                    })
-                );
+                const logger = log({ format: '%date %status %method %url' });
+                const html5rewriter = html5();
+                return [logger, html5rewriter, ...wares];
             }
         }
     }
