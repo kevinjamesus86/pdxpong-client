@@ -1,4 +1,5 @@
 import angular from 'angular';
+import uiRouter from 'angular-ui-router';
 import templateUrl from './leaderboard.html';
 
 class Leaderboard {
@@ -6,7 +7,7 @@ class Leaderboard {
 }
 const name = 'leaderboard';
 export default angular.module(name, [
-    'ui.router'
+    uiRouter
 ])
 .component(name, {
   templateUrl,

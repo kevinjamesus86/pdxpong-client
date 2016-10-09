@@ -170,6 +170,10 @@ webpackJsonp([0],{
 
 	var _angular2 = _interopRequireDefault(_angular);
 
+	var _angularUiRouter = __webpack_require__(11);
+
+	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
+
 	var _leaderboard = __webpack_require__(30);
 
 	var _leaderboard2 = _interopRequireDefault(_leaderboard);
@@ -183,7 +187,7 @@ webpackJsonp([0],{
 	};
 
 	var name = 'leaderboard';
-	exports.default = _angular2.default.module(name, ['ui.router']).component(name, {
+	exports.default = _angular2.default.module(name, [_angularUiRouter2.default]).component(name, {
 	  templateUrl: _leaderboard2.default,
 	  controller: Leaderboard
 	}).config(['$stateProvider', function ($stateProvider) {
