@@ -11,4 +11,13 @@ export default angular.module(name, [
 .component(name, {
   templateUrl,
   controller: Leaderboard
-});
+})
+.config(['$stateProvider', function($stateProvider) {
+
+  $stateProvider
+    .state('leaderboard', {
+      url: '/leaderboard',
+      template: '<leaderboard></leaderboard>'
+    });
+}])
+.name;

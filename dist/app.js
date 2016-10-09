@@ -77,24 +77,34 @@ webpackJsonp([0],{
 
 	var _navHeader2 = _interopRequireDefault(_navHeader);
 
-	var _pdxpong = __webpack_require__(29);
+	var _leaderboard = __webpack_require__(29);
+
+	var _leaderboard2 = _interopRequireDefault(_leaderboard);
+
+	var _pdxpong = __webpack_require__(31);
 
 	var _pdxpong2 = _interopRequireDefault(_pdxpong);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import Leaderboard from './components/leaderboard/leaderboard';
-
-	var _module = _angular2.default.module('pdxpong', [_navHeader2.default.name,
-	// Leaderboard.name,
-	'ui.router']);
+	var _module = _angular2.default.module('pdxpong', [_navHeader2.default, _leaderboard2.default, 'ui.router']);
 	exports.default = _module.name;
 
 
 	_module.component('main', {
 	    templateUrl: _pdxpong2.default,
 	    bindings: {}
-	});
+	}).config(['$locationProvider', '$urlRouterProvider', function ($locationProvider, $urlRouterProvider) {
+	    $locationProvider.html5Mode(true);
+	    $urlRouterProvider.otherwise('/leaderboard');
+	}]).run(['$rootScope', '$state', function ($rootScope, $state) {
+	    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+
+	        if (error === 'AUTH_REQUIRED') {
+	            $state.go('leaderboard');
+	        }
+	    });
+	}]);
 
 /***/ },
 
@@ -127,7 +137,7 @@ webpackJsonp([0],{
 	exports.default = _angular2.default.module(name, []).component(name, {
 	  templateUrl: _navHeader2.default,
 	  controller: NavHeader
-	});
+	}).name;
 
 /***/ },
 
@@ -148,6 +158,61 @@ webpackJsonp([0],{
 /***/ },
 
 /***/ 29:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _angular = __webpack_require__(5);
+
+	var _angular2 = _interopRequireDefault(_angular);
+
+	var _leaderboard = __webpack_require__(30);
+
+	var _leaderboard2 = _interopRequireDefault(_leaderboard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Leaderboard = function Leaderboard() {
+	  _classCallCheck(this, Leaderboard);
+	};
+
+	var name = 'leaderboard';
+	exports.default = _angular2.default.module(name, ['ui.router']).component(name, {
+	  templateUrl: _leaderboard2.default,
+	  controller: Leaderboard
+	}).config(['$stateProvider', function ($stateProvider) {
+
+	  $stateProvider.state('leaderboard', {
+	    url: '/leaderboard',
+	    template: '<leaderboard></leaderboard>'
+	  });
+	}]).name;
+
+/***/ },
+
+/***/ 30:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = 'app/src/components/leaderboard/leaderboard.html';
+
+	angular.module('ng').run(['$templateCache', function ($templateCache) {
+	    $templateCache.put('app/src/components/leaderboard/leaderboard.html', "<h1>Leaderboad</h1>");
+	}]);
+
+/***/ },
+
+/***/ 31:
 /***/ function(module, exports) {
 
 	'use strict';

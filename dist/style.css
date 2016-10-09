@@ -39,19 +39,17 @@ html {
   font-size: 13px;
   min-width: 320px;
   box-sizing: border-box;
-  background-color: #f3f5f7;
   height: 100%;
 }
 body {
-  color: #323a45;
+  color: #b4b4b4;
   font: 400 1em/1.6 brandon-grotesque, "Open Sans", "Helvetica Neue", Arial, sans-serif;
   cursor: default;
   height: 100%;
-  background-color: #252525;
-  background-image: linear-gradient(to bottom, #262626, #1e1e1e);
+  background-color: #262626;
+  background-image: linear-gradient(to bottom, #262626, #1f1f1f);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #fefefe;
 }
 /* contain margins */
 body::after,
