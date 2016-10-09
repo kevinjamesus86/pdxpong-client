@@ -8,6 +8,7 @@ module.exports = {
         options: {
             open: true,
             livereload: true,
+            base: ['.','app/public'],
             middleware(connect, opt, wares) {
                 return wares.concat(
                     log({ format: '%date %status %method %url' }),

@@ -44,6 +44,11 @@ const lessLoader = {
     loader: ExtractTextPlugin.extract(['css', 'less'])
 };
 
+const fontLoader = {
+    test: /\.(eot|svg|ttf|woff|woff2)$/,
+    loader: 'file?name=app/public/fonts/[name].[ext]'
+};
+
 module.exports = {
     dist: {
         entry: {
@@ -63,7 +68,8 @@ module.exports = {
             loaders: [
                 jsLoader,
                 lessLoader,
-                ngHtmlLoader
+                ngHtmlLoader,
+                fontLoader
             ]
         },
         plugins: [

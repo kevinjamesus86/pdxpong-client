@@ -1,28 +1,29 @@
-webpackJsonp([0],[
-/* 0 */
+webpackJsonp([0],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _angular = __webpack_require__(1);
+	var _angular = __webpack_require__(5);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularAnimate = __webpack_require__(3);
+	var _angularAnimate = __webpack_require__(7);
 
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-	var _angularSanitize = __webpack_require__(5);
+	var _angularSanitize = __webpack_require__(9);
 
 	var _angularSanitize2 = _interopRequireDefault(_angularSanitize);
 
-	var _angularUiRouter = __webpack_require__(7);
+	var _angularUiRouter = __webpack_require__(11);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	__webpack_require__(8);
+	__webpack_require__(12);
 
-	var _pdxpong = __webpack_require__(11);
+	var _pdxpong = __webpack_require__(26);
 
 	var _pdxpong2 = _interopRequireDefault(_pdxpong);
 
@@ -51,53 +52,64 @@ webpackJsonp([0],[
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
+
+/***/ 12:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 9 */,
-/* 10 */,
-/* 11 */
+
+/***/ 26:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
-	var _angular = __webpack_require__(1);
+	var _angular = __webpack_require__(5);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _pdxpong = __webpack_require__(12);
+	var _pdxpong = __webpack_require__(27);
 
 	var _pdxpong2 = _interopRequireDefault(_pdxpong);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var _module = _angular2.default.module('pdxpong', []);
+	// import NavHeader from './components/nav-header/nav-header';
+	// import Leaderboard from './components/leaderboard/leaderboard';
+
+	var _module = _angular2.default.module('pdxpong', [
+	// NavHeader.name,
+	// Leaderboard.name,
+	'ui.router']);
 	exports.default = _module.name;
 
 
 	_module.component('main', {
-	    templateUrl: _pdxpong2.default,
-	    bindings: {
-	        msg: '@'
+	  templateUrl: _pdxpong2.default,
+	  bindings: {}
+	}).run(run).config(config);
+
+	function config($locationProvider, $urlRouterProvider) {
+	  $locationProvider.html5Mode(true);
+	  $urlRouterProvider.otherwise('/leaderboard');
+	}
+
+	function run($rootScope, $state) {
+	  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+	    if (error === 'AUTH_REQUIRED') {
+	      $state.go('leaderboard');
 	    }
-	});
+	  });
+	}
 
 /***/ },
-/* 12 */
+
+/***/ 27:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -108,8 +120,9 @@ webpackJsonp([0],[
 	exports.default = 'app/src/pdxpong.html';
 
 	angular.module('ng').run(['$templateCache', function ($templateCache) {
-	    $templateCache.put('app/src/pdxpong.html', "<h1>{{$ctrl.msg}}</h1>");
+	    $templateCache.put('app/src/pdxpong.html', "<nav-header></nav-header><div ui-view></div>");
 	}]);
 
 /***/ }
-]);
+
+});
