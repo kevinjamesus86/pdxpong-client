@@ -1,3 +1,5 @@
+import './login.less';
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import templateUrl from './login.html';

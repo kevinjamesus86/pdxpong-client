@@ -1,10 +1,16 @@
-@import './common/variables';
-@import './common/util';
+@import (reference) './common/variables';
+
+@-webkit-viewport {
+    width: device-width;
+}
+@viewport {
+    width: device-width;
+}
 
 @font-face {
-  font-family: 'BigNoodle';
-  font-style: normal;
-  src: url('../public/fonts/BigNoodleToo.eot');
+    font-family: 'BigNoodle';
+    font-style: normal;
+    src: url('../public/fonts/BigNoodleToo.eot');
     src: url('../public/fonts/BigNoodleToo.woff2') format('woff2'),
          url('../public/fonts/BigNoodleToo.woff') format('woff'),
          url('../public/fonts/BigNoodleToo.ttf') format('truetype'),
@@ -12,8 +18,8 @@
          url('../public/fonts/BigNoodleToo.eot?#iefix') format('embedded-opentype');
 }
 @font-face {
-  font-family: 'BigNoodle';
-  font-style: italic;
+    font-family: 'BigNoodle';
+    font-style: italic;
     src: url('../public/fonts/BigNoodleTooOblique.eot');
     src: url('../public/fonts/BigNoodleTooOblique.woff2') format('woff2'),
          url('../public/fonts/BigNoodleTooOblique.woff') format('woff'),
@@ -22,8 +28,41 @@
          url('../public/fonts/BigNoodleTooOblique.eot?#iefix') format('embedded-opentype');
 }
 
-// child pages
-@import './components/nav-header/nav-header';
-@import './components/leaderboard/leaderboard';
-@import './components/login/login';
-@import './components/register/register';
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 13px;
+    min-width: 320px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    color: @light-grey;
+    font: 400 1em/1.6 brandon-grotesque, "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    cursor: default;
+    height: 100%;
+    background-color: @dark-grey;
+    background-image: linear-gradient(to bottom, @dark-grey, @black);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::after,
+body::before {
+    content: " ";
+    display: table;
+}
+
+@import "~angular/angular-csp.css";
+@import './common/util';

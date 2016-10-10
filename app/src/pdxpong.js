@@ -1,3 +1,5 @@
+import './pdxpong.less';
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import NavHeader from './components/nav-header/nav-header';
