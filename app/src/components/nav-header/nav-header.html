@@ -1,5 +1,15 @@
 <nav>
     <a href class="logo" alt="New Game">
     </a>
-    <a href>Person's Name</a>
+
+    <!-- login/register shown for anonymous users -->
+    <div ng-if="!$ctrl.user">
+        <a class="login-link" href ui-sref="login">login</a>
+        <a class="login-link" href ui-sref="register">register</a>
+    </div>
+    <!-- username/avatar for logged in users -->
+    <a class="account-link" ng-if="$ctrl.user" ui-sref="account">
+        <span>{{$ctrl.user.name}}</span>
+        <img class="avatar" ng-src="{{$ctrl.user.avatar}}">
+    </a>
 </nav>

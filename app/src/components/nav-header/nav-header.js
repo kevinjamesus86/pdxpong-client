@@ -8,7 +8,10 @@ const name = 'navHeader';
 export default angular.module(name, [])
 .component(name, {
   templateUrl,
-  controller: NavHeader
+  controller: NavHeader,
+  bindings: {
+      auth: '='
+  }
 })
 
 .name;

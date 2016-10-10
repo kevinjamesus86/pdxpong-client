@@ -74,14 +74,28 @@ body::before {
 .s-a {
   justify-content: space-around;
 }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@font-face {
+  font-family: 'BigNoodle';
+  font-style: normal;
+  src: url(app/public/fonts/BigNoodleToo.eot);
+  src: url(app/public/fonts/BigNoodleToo.woff2) format('woff2'), url(app/public/fonts/BigNoodleToo.woff) format('woff'), url(app/public/fonts/BigNoodleToo.ttf) format('truetype'), url(app/public/fonts/BigNoodleToo.svg#BigNoodleToo) format('svg'), url(app/public/fonts/BigNoodleToo.eot?#iefix) format('embedded-opentype');
+}
+@font-face {
+  font-family: 'BigNoodle';
+  font-style: italic;
+  src: url(app/public/fonts/BigNoodleTooOblique.eot);
+  src: url(app/public/fonts/BigNoodleTooOblique.woff2) format('woff2'), url(app/public/fonts/BigNoodleTooOblique.woff) format('woff'), url(app/public/fonts/BigNoodleTooOblique.ttf) format('truetype'), url(app/public/fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique) format('svg'), url(app/public/fonts/BigNoodleTooOblique.eot?#iefix) format('embedded-opentype');
+}
 nav-header {
   display: block;
   height: 54px;
   background-color: #1f1f1f;
   color: #fefefe;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-  font-family: 'BigNoodle';
-  font-size: 22px;
 }
 nav-header nav {
   display: flex;
@@ -90,7 +104,7 @@ nav-header nav {
   align-items: center;
   height: 100%;
   padding: 0 15px;
-  font-style: italic;
+  color: #414141;
 }
 nav-header a {
   color: inherit;
@@ -108,15 +122,20 @@ nav-header .logo {
   background-repeat: no-repeat;
   background-position: center;
 }
-@font-face {
+nav-header .login-link {
   font-family: 'BigNoodle';
-  font-style: normal;
-  src: url(app/public/fonts/BigNoodleToo.eot);
-  src: url(app/public/fonts/BigNoodleToo.woff2) format('woff2'), url(app/public/fonts/BigNoodleToo.woff) format('woff'), url(app/public/fonts/BigNoodleToo.ttf) format('truetype'), url(app/public/fonts/BigNoodleToo.svg#BigNoodleToo) format('svg'), url(app/public/fonts/BigNoodleToo.eot?#iefix) format('embedded-opentype');
+  font-size: 18px;
+  color: #b4b4b4;
+  margin-left: 7.5px;
 }
-@font-face {
-  font-family: 'BigNoodle';
-  font-style: italic;
-  src: url(app/public/fonts/BigNoodleTooOblique.eot);
-  src: url(app/public/fonts/BigNoodleTooOblique.woff2) format('woff2'), url(app/public/fonts/BigNoodleTooOblique.woff) format('woff'), url(app/public/fonts/BigNoodleTooOblique.ttf) format('truetype'), url(app/public/fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique) format('svg'), url(app/public/fonts/BigNoodleTooOblique.eot?#iefix) format('embedded-opentype');
+nav-header .login-link:hover,
+nav-header .login-link:focus,
+nav-header .login-link:active {
+  color: #fefefe;
+  text-decoration: underline;
+}
+leaderboard {
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
 }
