@@ -10,6 +10,7 @@ function combineLoaders(...loaders) {
 const jsLoader = {
     test: /\.js$/,
     loader: 'babel',
+    exclude: /(node_modules|bower_components)/,
     query: {
         ast: false,
         compact: false,
@@ -57,7 +58,8 @@ module.exports = {
                 'angular',
                 'angular-animate',
                 'angular-sanitize',
-                'angular-ui-router'
+                'angular-ui-router',
+                'angularfire'
             ]
         },
         output: {
