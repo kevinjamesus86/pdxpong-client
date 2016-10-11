@@ -5,7 +5,7 @@ import uiRouter from 'angular-ui-router';
 import templateUrl from './login.html';
 
 class Login {
-    constructor($state) {
+    constructor($state, Auth) {
         this.$state = $state;
     }
     login() {
@@ -31,16 +31,15 @@ const name = 'login';
 export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['$state', Login],
+        controller: ['$state', 'Auth', Login],
         bindings: {
-            auth: '='
         }
     })
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state('login', {
                 url: '/login',
-                template: '<login auth="$ctrl.auth"></login>'
+                template: '<login></login>'
             });
     }])
     .name;

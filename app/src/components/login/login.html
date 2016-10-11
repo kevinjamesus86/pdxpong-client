@@ -11,18 +11,18 @@
     <div class="row s-b">
         <input type="submit" name="name" value="Log In">
         <span class="separator">Or Login Using:</span>
-        <button ng-click="$ctrl.signInWith('google')" class="button google">
+        <a ng-click="$ctrl.signInWith('google')" class="button google">
             Google
-        </button>
-        <button disabled ng-click="$ctrl.signInWith('github')" class="button github">
+        </a>
+        <a disabled ng-click="$ctrl.signInWith('github')" class="button github">
             Github
-        </button>
-        <button disabled ng-click="$ctrl.signInWith('facebook')" class="button facebook">
+        </a>
+        <a disabled ng-click="$ctrl.signInWith('facebook')" class="button facebook">
             Facebook
-        </button>
-        <button disabled ng-click="$ctrl.signInWith('twitter')" class="button twitter">
+        </a>
+        <a disabled ng-click="$ctrl.signInWith('twitter')" class="button twitter">
             Twitter
-        </button>
+        </a>
     </div>
 </form>
 {{$ctrl.state}}
