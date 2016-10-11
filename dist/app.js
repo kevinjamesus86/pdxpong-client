@@ -4,36 +4,27 @@ webpackJsonp([0],[
 
 	'use strict';
 
-	var _angular = __webpack_require__(8);
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularAnimate = __webpack_require__(10);
+	var _angularAnimate = __webpack_require__(5);
 
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-	var _angularSanitize = __webpack_require__(12);
+	var _angularSanitize = __webpack_require__(7);
 
 	var _angularSanitize2 = _interopRequireDefault(_angularSanitize);
 
-	var _angularUiRouter = __webpack_require__(14);
-
-	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
-
-	__webpack_require__(15);
-
-	var _pdxpong = __webpack_require__(29);
+	var _pdxpong = __webpack_require__(9);
 
 	var _pdxpong2 = _interopRequireDefault(_pdxpong);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// app to strap
-
-
-	// styles
 	// common dependencies
-	var _module = _angular2.default.module('pdxpong-app', [_pdxpong2.default, _angularAnimate2.default, _angularSanitize2.default, _angularUiRouter2.default]);
+	var _module = _angular2.default.module('pdxpong-app', [_pdxpong2.default, _angularAnimate2.default, _angularSanitize2.default]);
 
 	// general perf
 
@@ -59,32 +50,7 @@ webpackJsonp([0],[
 /* 6 */,
 /* 7 */,
 /* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -93,35 +59,37 @@ webpackJsonp([0],[
 	    value: true
 	});
 
-	var _angular = __webpack_require__(8);
+	__webpack_require__(10);
+
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(14);
+	var _angularUiRouter = __webpack_require__(23);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _navHeader = __webpack_require__(30);
+	var _navHeader = __webpack_require__(24);
 
 	var _navHeader2 = _interopRequireDefault(_navHeader);
 
-	var _leaderboard = __webpack_require__(32);
+	var _leaderboard = __webpack_require__(28);
 
 	var _leaderboard2 = _interopRequireDefault(_leaderboard);
 
-	var _auth = __webpack_require__(34);
+	var _auth = __webpack_require__(31);
 
 	var _auth2 = _interopRequireDefault(_auth);
 
-	var _login = __webpack_require__(35);
+	var _login = __webpack_require__(32);
 
 	var _login2 = _interopRequireDefault(_login);
 
-	var _register = __webpack_require__(37);
+	var _register = __webpack_require__(35);
 
 	var _register2 = _interopRequireDefault(_register);
 
-	var _pdxpong = __webpack_require__(39);
+	var _pdxpong = __webpack_require__(38);
 
 	var _pdxpong2 = _interopRequireDefault(_pdxpong);
 
@@ -152,7 +120,26 @@ webpackJsonp([0],[
 	}]);
 
 /***/ },
-/* 30 */
+/* 10 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -161,11 +148,13 @@ webpackJsonp([0],[
 	  value: true
 	});
 
-	var _angular = __webpack_require__(8);
+	__webpack_require__(25);
+
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _navHeader = __webpack_require__(31);
+	var _navHeader = __webpack_require__(27);
 
 	var _navHeader2 = _interopRequireDefault(_navHeader);
 
@@ -187,7 +176,14 @@ webpackJsonp([0],[
 	}).name;
 
 /***/ },
-/* 31 */
+/* 25 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 26 */,
+/* 27 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -202,7 +198,7 @@ webpackJsonp([0],[
 	}]);
 
 /***/ },
-/* 32 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -211,15 +207,17 @@ webpackJsonp([0],[
 	    value: true
 	});
 
-	var _angular = __webpack_require__(8);
+	__webpack_require__(29);
+
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(14);
+	var _angularUiRouter = __webpack_require__(23);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _leaderboard = __webpack_require__(33);
+	var _leaderboard = __webpack_require__(30);
 
 	var _leaderboard2 = _interopRequireDefault(_leaderboard);
 
@@ -246,7 +244,13 @@ webpackJsonp([0],[
 	}]).name;
 
 /***/ },
-/* 33 */
+/* 29 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 30 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -261,7 +265,7 @@ webpackJsonp([0],[
 	}]);
 
 /***/ },
-/* 34 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -270,7 +274,7 @@ webpackJsonp([0],[
 	    value: true
 	});
 
-	var _angular = __webpack_require__(8);
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
@@ -283,7 +287,7 @@ webpackJsonp([0],[
 	}]).name;
 
 /***/ },
-/* 35 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -294,15 +298,17 @@ webpackJsonp([0],[
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _angular = __webpack_require__(8);
+	__webpack_require__(33);
+
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(14);
+	var _angularUiRouter = __webpack_require__(23);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _login = __webpack_require__(36);
+	var _login = __webpack_require__(34);
 
 	var _login2 = _interopRequireDefault(_login);
 
@@ -311,10 +317,9 @@ webpackJsonp([0],[
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var Login = function () {
-	    function Login(Auth, $state) {
+	    function Login($state) {
 	        _classCallCheck(this, Login);
 
-	        this.auth = Auth;
 	        this.$state = $state;
 	    }
 
@@ -348,7 +353,7 @@ webpackJsonp([0],[
 	var name = 'login';
 	exports.default = _angular2.default.module(name, [_angularUiRouter2.default]).component(name, {
 	    templateUrl: _login2.default,
-	    controller: ['Auth', '$state', Login],
+	    controller: ['$state', Login],
 	    bindings: {
 	        auth: '='
 	    }
@@ -360,7 +365,13 @@ webpackJsonp([0],[
 	}]).name;
 
 /***/ },
-/* 36 */
+/* 33 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 34 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -375,24 +386,26 @@ webpackJsonp([0],[
 	}]);
 
 /***/ },
-/* 37 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
-	var _angular = __webpack_require__(8);
+	__webpack_require__(36);
+
+	var _angular = __webpack_require__(3);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(14);
+	var _angularUiRouter = __webpack_require__(23);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _register = __webpack_require__(38);
+	var _register = __webpack_require__(37);
 
 	var _register2 = _interopRequireDefault(_register);
 
@@ -400,26 +413,39 @@ webpackJsonp([0],[
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	var name = 'register';
+	exports.default = name;
+
+
+	var _module = _angular2.default.module(name, [_angularUiRouter2.default]);
+
 	var Register = function Register() {
-	  _classCallCheck(this, Register);
+	    _classCallCheck(this, Register);
 	};
 
-	var name = 'register';
-	exports.default = _angular2.default.module(name, [_angularUiRouter2.default]).component(name, {
-	  templateUrl: _register2.default,
-	  controller: Register,
-	  bindings: {
-	    auth: '='
-	  }
-	}).config(['$stateProvider', function ($stateProvider) {
-	  $stateProvider.state('register', {
-	    url: '/register',
-	    template: '<register auth="$ctrl.auth"></register>'
-	  });
-	}]).name;
+	_module.component(name, {
+	    templateUrl: _register2.default,
+	    controller: Register,
+	    bindings: {
+	        auth: '='
+	    }
+	});
+
+	_module.config(['$stateProvider', function ($stateProvider) {
+	    $stateProvider.state('register', {
+	        url: '/register',
+	        template: '<register auth="$ctrl.auth"></register>'
+	    });
+	}]);
 
 /***/ },
-/* 38 */
+/* 36 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -434,7 +460,7 @@ webpackJsonp([0],[
 	}]);
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports) {
 
 	'use strict';

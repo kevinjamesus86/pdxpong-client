@@ -1,3 +1,5 @@
+import './nav-header.less';
+
 import angular from 'angular';
 import templateUrl from './nav-header.html';
 

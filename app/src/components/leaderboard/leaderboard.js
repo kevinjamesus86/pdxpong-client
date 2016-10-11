@@ -1,3 +1,5 @@
+import './leaderboard.less';
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import templateUrl from './leaderboard.html';

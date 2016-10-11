@@ -1,10 +1,11 @@
+import './login.less';
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import templateUrl from './login.html';
 
 class Login {
-    constructor(Auth, $state) {
-        this.auth = Auth;
+    constructor($state) {
         this.$state = $state;
     }
     login() {
@@ -30,7 +31,7 @@ const name = 'login';
 export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['Auth', '$state', Login],
+        controller: ['$state', Login],
         bindings: {
             auth: '='
         }

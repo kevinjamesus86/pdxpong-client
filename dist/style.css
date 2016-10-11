@@ -25,6 +25,18 @@ ng\:form {
 @viewport {
   width: device-width;
 }
+@font-face {
+  font-family: 'BigNoodle';
+  font-style: normal;
+  src: url(app/public/fonts/BigNoodleToo.eot);
+  src: url(app/public/fonts/BigNoodleToo.woff2) format('woff2'), url(app/public/fonts/BigNoodleToo.woff) format('woff'), url(app/public/fonts/BigNoodleToo.ttf) format('truetype'), url(app/public/fonts/BigNoodleToo.svg#BigNoodleToo) format('svg'), url(app/public/fonts/BigNoodleToo.eot?#iefix) format('embedded-opentype');
+}
+@font-face {
+  font-family: 'BigNoodle';
+  font-style: italic;
+  src: url(app/public/fonts/BigNoodleTooOblique.eot);
+  src: url(app/public/fonts/BigNoodleTooOblique.woff2) format('woff2'), url(app/public/fonts/BigNoodleTooOblique.woff) format('woff'), url(app/public/fonts/BigNoodleTooOblique.ttf) format('truetype'), url(app/public/fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique) format('svg'), url(app/public/fonts/BigNoodleTooOblique.eot?#iefix) format('embedded-opentype');
+}
 *,
 *::after,
 *::before {
@@ -51,7 +63,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-/* contain margins */
 body::after,
 body::before {
   content: " ";
@@ -204,18 +215,6 @@ form input[type=text]:focus:-moz-placeholder,
 form select:focus:-moz-placeholder {
   /* Firefox 18- */
   color: #818181;
-}
-@font-face {
-  font-family: 'BigNoodle';
-  font-style: normal;
-  src: url(app/public/fonts/BigNoodleToo.eot);
-  src: url(app/public/fonts/BigNoodleToo.woff2) format('woff2'), url(app/public/fonts/BigNoodleToo.woff) format('woff'), url(app/public/fonts/BigNoodleToo.ttf) format('truetype'), url(app/public/fonts/BigNoodleToo.svg#BigNoodleToo) format('svg'), url(app/public/fonts/BigNoodleToo.eot?#iefix) format('embedded-opentype');
-}
-@font-face {
-  font-family: 'BigNoodle';
-  font-style: italic;
-  src: url(app/public/fonts/BigNoodleTooOblique.eot);
-  src: url(app/public/fonts/BigNoodleTooOblique.woff2) format('woff2'), url(app/public/fonts/BigNoodleTooOblique.woff) format('woff'), url(app/public/fonts/BigNoodleTooOblique.ttf) format('truetype'), url(app/public/fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique) format('svg'), url(app/public/fonts/BigNoodleTooOblique.eot?#iefix) format('embedded-opentype');
 }
 nav-header {
   display: block;

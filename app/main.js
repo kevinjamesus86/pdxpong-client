@@ -2,10 +2,6 @@
 import angular from 'angular';
 import ngAnimate from 'angular-animate';
 import ngSanitize from 'angular-sanitize';
-import uiRouter from 'angular-ui-router';
-
-// styles
-import './main.less';
 
 // pdxpong app
 import pdxpong from './src/pdxpong';
@@ -14,8 +10,7 @@ import pdxpong from './src/pdxpong';
 const module = angular.module('pdxpong-app', [
     pdxpong,
     ngAnimate,
-    ngSanitize,
-    uiRouter
+    ngSanitize
 ]);
 
 // general perf
