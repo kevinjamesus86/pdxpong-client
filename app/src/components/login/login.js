@@ -5,8 +5,9 @@ import uiRouter from 'angular-ui-router';
 import templateUrl from './login.html';
 
 class Login {
-    constructor($state) {
+    constructor($state, Auth) {
         this.$state = $state;
+        this.Auth = Auth;
     }
     login() {
         var vm = this;
@@ -19,7 +20,7 @@ class Login {
     }
     signInWith(provider) {
         var vm = this;
-        this.auth.$signInWithPopup(provider).then(function(firebaseUser) {
+        this.Auth.$signInWithPopup(provider).then(function(firebaseUser) {
             vm.state = 'Signed in as:' + firebaseUser.uid;
             vm.$state.go('leaderboard');
         }).catch(function(error) {
@@ -31,16 +32,15 @@ const name = 'login';
 export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['$state', Login],
+        controller: ['$state', 'Auth', Login],
         bindings: {
-            auth: '='
         }
     })
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state('login', {
                 url: '/login',
-                template: '<login auth="$ctrl.auth"></login>'
+                template: '<login></login>'
             });
     }])
     .name;

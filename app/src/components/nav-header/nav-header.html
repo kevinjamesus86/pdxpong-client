@@ -9,7 +9,7 @@
     </div>
     <!-- username/avatar for logged in users -->
     <a class="account-link" ng-if="$ctrl.user" ui-sref="account">
-        <span>{{$ctrl.user.name}}</span>
-        <img class="avatar" ng-src="{{$ctrl.user.avatar}}">
+        <span>{{$ctrl.user.displayName}}</span>
+        <img class="avatar" ng-src="{{$ctrl.user.photoURL}}">
     </a>
 </nav>

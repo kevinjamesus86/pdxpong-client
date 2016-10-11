@@ -10,20 +10,25 @@ export default name;
 const module = angular.module(name, [uiRouter]);
 
 class Register {
+    constructor($state, Auth) {
+        this.$state = $state;
+        this.Auth = Auth;
+    }
+    register() {
 
+    }
 }
 
 module.component(name, {
     templateUrl,
-    controller: Register,
+    controller: ['$state', 'Auth', Register],
     bindings: {
-        auth: '='
     }
 });
 
 module.config(['$stateProvider', function($stateProvider) {
     $stateProvider.state('register', {
         url: '/register',
-        template: '<register auth="$ctrl.auth"></register>'
+        template: '<register></register>'
     });
 }]);
