@@ -7,6 +7,7 @@ import templateUrl from './login.html';
 class Login {
     constructor($state, Auth) {
         this.$state = $state;
+        this.Auth = Auth;
     }
     login() {
         var vm = this;
@@ -19,7 +20,7 @@ class Login {
     }
     signInWith(provider) {
         var vm = this;
-        this.auth.$signInWithPopup(provider).then(function(firebaseUser) {
+        this.Auth.$signInWithPopup(provider).then(function(firebaseUser) {
             vm.state = 'Signed in as:' + firebaseUser.uid;
             vm.$state.go('leaderboard');
         }).catch(function(error) {
