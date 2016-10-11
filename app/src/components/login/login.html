@@ -1,13 +1,28 @@
-<form class="$ctrl.login()">
+<form ng-submit="$ctrl.login()">
     <h1>Login</h1>
     <div class="">
         <label for="email">Email</label>
-        <input type="email" ng-model="$ctrl.email">
+        <input placeholder="someone@something.com" type="email" ng-model="$ctrl.email">
     </div>
     <div class="">
         <label for="password">Password</label>
-        <input type="password" ng-model="$ctrl.password">
+        <input placeholder="8+ characters, at least one special" type="password" ng-model="$ctrl.password">
     </div>
-    <input type="button" name="name" value="Sign In">
+    <div class="row s-b">
+        <input type="submit" name="name" value="Log In">
+        <span class="separator">Or Login Using:</span>
+        <button ng-click="$ctrl.signInWith('google')" class="button google">
+            Google
+        </button>
+        <button disabled ng-click="$ctrl.signInWith('github')" class="button github">
+            Github
+        </button>
+        <button disabled ng-click="$ctrl.signInWith('facebook')" class="button facebook">
+            Facebook
+        </button>
+        <button disabled ng-click="$ctrl.signInWith('twitter')" class="button twitter">
+            Twitter
+        </button>
+    </div>
 </form>
 {{$ctrl.state}}

@@ -140,7 +140,10 @@ webpackJsonp([0],[
 	}).config(['$locationProvider', '$urlRouterProvider', function ($locationProvider, $urlRouterProvider) {
 	    $locationProvider.html5Mode(true);
 	    $urlRouterProvider.otherwise('/leaderboard');
-	}]).run(['$rootScope', '$state', function ($rootScope, $state) {
+	}]).run(['$rootScope', '$state', 'Auth', function ($rootScope, $state, Auth) {
+	    Auth.$onAuthStateChanged(function (firebaseUser) {
+	        $rootScope.user = firebaseUser;
+	    });
 	    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
 	        if (error === 'AUTH_REQUIRED') {
 	            $state.go('leaderboard');
@@ -179,7 +182,7 @@ webpackJsonp([0],[
 	  templateUrl: _navHeader2.default,
 	  controller: NavHeader,
 	  bindings: {
-	    auth: '='
+	    user: '='
 	  }
 	}).name;
 
@@ -286,8 +289,10 @@ webpackJsonp([0],[
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _angular = __webpack_require__(8);
 
@@ -305,22 +310,53 @@ webpackJsonp([0],[
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Login = function Login() {
-	  _classCallCheck(this, Login);
-	};
+	var Login = function () {
+	    function Login(Auth, $state) {
+	        _classCallCheck(this, Login);
+
+	        this.auth = Auth;
+	        this.$state = $state;
+	    }
+
+	    _createClass(Login, [{
+	        key: 'login',
+	        value: function login() {
+	            var vm = this;
+	            this.auth.$signInWithEmailAndPassword('my@email.com', 'password').then(function (firebaseUser) {
+	                vm.state = 'Signed in as:' + firebaseUser.uid;
+	                vm.$state.go('leaderboard');
+	            }).catch(function (error) {
+	                vm.state = 'Authentication failed:' + error;
+	            });
+	        }
+	    }, {
+	        key: 'signInWith',
+	        value: function signInWith(provider) {
+	            var vm = this;
+	            this.auth.$signInWithPopup(provider).then(function (firebaseUser) {
+	                vm.state = 'Signed in as:' + firebaseUser.uid;
+	                vm.$state.go('leaderboard');
+	            }).catch(function (error) {
+	                vm.state = 'Authentication failed:' + error;
+	            });
+	        }
+	    }]);
+
+	    return Login;
+	}();
 
 	var name = 'login';
 	exports.default = _angular2.default.module(name, [_angularUiRouter2.default]).component(name, {
-	  templateUrl: _login2.default,
-	  controller: Login,
-	  bindings: {
-	    auth: '='
-	  }
+	    templateUrl: _login2.default,
+	    controller: ['Auth', '$state', Login],
+	    bindings: {
+	        auth: '='
+	    }
 	}).config(['$stateProvider', function ($stateProvider) {
-	  $stateProvider.state('login', {
-	    url: '/login',
-	    template: '<login auth="$ctrl.auth"></login>'
-	  });
+	    $stateProvider.state('login', {
+	        url: '/login',
+	        template: '<login auth="$ctrl.auth"></login>'
+	    });
 	}]).name;
 
 /***/ },
@@ -335,7 +371,7 @@ webpackJsonp([0],[
 	exports.default = 'app/src/components/login/login.html';
 
 	angular.module('ng').run(['$templateCache', function ($templateCache) {
-	    $templateCache.put('app/src/components/login/login.html', "<form class=$ctrl.login()><h1>Login</h1><div class=\"\"><label for=email>Email</label><input type=email ng-model=$ctrl.email></div><div class=\"\"><label for=password>Password</label><input type=password ng-model=$ctrl.password></div><input type=button name=name value=\"Sign In\"></form>{{$ctrl.state}}");
+	    $templateCache.put('app/src/components/login/login.html', "<form ng-submit=$ctrl.login()><h1>Login</h1><div class=\"\"><label for=email>Email</label><input type=email ng-model=$ctrl.email placeholder=someone@something.com></div><div class=\"\"><label for=password>Password</label><input type=password ng-model=$ctrl.password placeholder=\"8+ characters, at least one special\"></div><div class=\"row s-b\"><input type=submit name=name value=\"Log In\"><span class=separator>Or Login Using:</span><button class=\"button google\" ng-click=\"$ctrl.signInWith('google')\">Google</button><button class=\"button github\" ng-click=\"$ctrl.signInWith('github')\" disabled>Github</button><button class=\"button facebook\" ng-click=\"$ctrl.signInWith('facebook')\" disabled>Facebook</button><button class=\"button twitter\" ng-click=\"$ctrl.signInWith('twitter')\" disabled>Twitter</button></div></form>{{$ctrl.state}}");
 	}]);
 
 /***/ },
@@ -409,7 +445,7 @@ webpackJsonp([0],[
 	exports.default = 'app/src/pdxpong.html';
 
 	angular.module('ng').run(['$templateCache', function ($templateCache) {
-	    $templateCache.put('app/src/pdxpong.html', "<nav-header auth=$ctrl.auth></nav-header><div>{{log}}</div><div ui-view></div>");
+	    $templateCache.put('app/src/pdxpong.html', "<nav-header user=$ctrl.currentUser></nav-header><div>{{log}}</div><div ui-view></div>");
 	}]);
 
 /***/ }

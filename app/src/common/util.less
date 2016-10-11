@@ -1,10 +1,13 @@
+@import (reference) './variables';
+
 .flex {
-    flex:1;
+    flex: 1;
 }
 
 .row {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .col {
@@ -15,11 +18,119 @@
 .s-b {
     justify-content: space-between;
 }
+
 .s-a {
     justify-content: space-around;
 }
 
 .container {
+    display:block;
     max-width: 1000px;
-    margin:0 auto;
+    margin: 0 auto;
+}
+
+input[type=submit],
+button,
+.button {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+    transition: 300ms all;
+    background: @mid-grey;
+    color:@white;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+    border:0;
+    padding:@gutter/2 2*@gutter;
+    font: 20px @default-font;
+    cursor: pointer;
+    &:hover {
+        background: lighten(@mid-grey, 10%);
+    }
+    &[disabled],
+    &.disabled {
+        &:hover {
+            background: lighten(@mid-grey, 5%);;
+        }
+        cursor: not-allowed;
+        background: lighten(@mid-grey, 5%);
+        color:@light-grey;
+        transition: none;
+    }
+}
+
+form {
+    font-size: 14px;
+
+    ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: lighten(@dark-grey, 20%);
+    }
+
+    ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: lighten(@dark-grey, 20%);
+    }
+
+    :-ms-input-placeholder {
+        /* IE 10+ */
+        color: lighten(@dark-grey, 20%);
+    }
+
+    :-moz-placeholder {
+        /* Firefox 18- */
+        color: lighten(@dark-grey, 20%);
+    }
+
+    label {
+        display: block;
+        margin: @gutter/2 0;
+        text-transform: uppercase;
+    }
+
+    input[type=email],
+    input[type=password],
+    input[type=text],
+    select {
+        display: block;
+        width: 100%;
+        font-family: @default-font;
+        margin: @gutter/2 0 @gutter;
+        padding: @gutter/2 @gutter;
+        line-height: 1.5;
+        outline: none;
+        border: 1px solid;
+        border-radius: 2px;
+        background-color: @dark-grey;
+        color: @light-grey;
+        transition:300ms color, 300ms background-color;
+        &:focus {
+            background-color: @light-grey;
+            color: @dark-grey;
+            &::-webkit-input-placeholder {
+                /* Chrome/Opera/Safari */
+                color: darken(@light-grey, 20%);
+            }
+
+            &::-moz-placeholder {
+                /* Firefox 19+ */
+                color: darken(@light-grey, 20%);
+            }
+
+            &:-ms-input-placeholder {
+                /* IE 10+ */
+                color: darken(@light-grey, 20%);
+            }
+
+            &:-moz-placeholder {
+                /* Firefox 18- */
+                color: darken(@light-grey, 20%);
+            }
+        }
+    }
 }

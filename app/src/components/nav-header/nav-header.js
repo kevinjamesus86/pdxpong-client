@@ -10,7 +10,7 @@ export default angular.module(name, [])
   templateUrl,
   controller: NavHeader,
   bindings: {
-      auth: '='
+      user: '='
   }
 })
 

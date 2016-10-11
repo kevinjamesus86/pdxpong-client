@@ -29,7 +29,10 @@ module.component('main', {
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/leaderboard');
 }])
-.run(['$rootScope', '$state', function($rootScope, $state) {
+.run(['$rootScope', '$state', 'Auth', function($rootScope, $state, Auth) {
+    Auth.$onAuthStateChanged(function(firebaseUser) {
+      $rootScope.user = firebaseUser;
+    });
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
         if (error === 'AUTH_REQUIRED') {
             $state.go('leaderboard');
