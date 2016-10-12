@@ -27,6 +27,17 @@
     display:block;
     max-width: 1000px;
     margin: 0 auto;
+    padding: @gutter/2;
+}
+
+a {
+    color:lighten(@blue,20%);
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color:@blue;
+        text-decoration: underline;
+    }
 }
 
 input[type=submit],
@@ -47,7 +58,7 @@ button,
     outline: none;
     border:0;
     padding:@gutter/2 2*@gutter;
-    font: 20px @default-font;
+    font: 16px @default-font;
     cursor: pointer;
     &:hover {
         background: lighten(@mid-grey, 10%);
@@ -91,6 +102,14 @@ form {
         display: block;
         margin: @gutter/2 0;
         text-transform: uppercase;
+    }
+
+    .error {
+        vertical-align: text-bottom;
+        margin-left:@gutter;
+        font-size:12px;
+        color:red;
+        text-transform: none;
     }
 
     input[type=email],
