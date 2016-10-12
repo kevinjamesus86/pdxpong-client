@@ -8,7 +8,7 @@
         <a class="login-link" href ui-sref="register">register</a>
     </div>
     <!-- username/avatar for logged in users -->
-    <a class="account-link" ng-if="$ctrl.user" ui-sref="account.profile">
+    <a class="account-link" ng-if="$ctrl.user" ui-sref="account.account">
         <span>{{$ctrl.user | userNameFilter}}</span>
         <img class="avatar" ng-src="{{$ctrl.user | userImageFilter}}">
     </a>
