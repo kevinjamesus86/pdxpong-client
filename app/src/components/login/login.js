@@ -3,6 +3,7 @@ import './login.less';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import templateUrl from './login.html';
+import ProviderLogins from '../provider-logins/provider-logins';
 
 class Login {
     constructor($state, Auth) {
@@ -11,16 +12,7 @@ class Login {
     }
     login() {
         var vm = this;
-        this.auth.$signInWithEmailAndPassword('my@email.com', 'password').then(function(firebaseUser) {
-            vm.state = 'Signed in as:' + firebaseUser.uid;
-            vm.$state.go('leaderboard');
-        }).catch(function(error) {
-            vm.state = 'Authentication failed:' + error;
-        });
-    }
-    signInWith(provider) {
-        var vm = this;
-        this.Auth.$signInWithPopup(provider).then(function(firebaseUser) {
+        this.Auth.$signInWithEmailAndPassword(this.email, this.password).then(function(firebaseUser) {
             vm.state = 'Signed in as:' + firebaseUser.uid;
             vm.$state.go('leaderboard');
         }).catch(function(error) {
@@ -29,7 +21,7 @@ class Login {
     }
 }
 const name = 'login';
-export default angular.module(name, [uiRouter])
+export default angular.module(name, [uiRouter, ProviderLogins])
     .component(name, {
         templateUrl,
         controller: ['$state', 'Auth', Login],
