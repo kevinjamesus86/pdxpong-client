@@ -1,11 +1,10 @@
-import './account.less';
+import './account-profile.less';
 
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import templateUrl from './account.html';
-import AccountProfile from '../account-profile/account-profile';
-import AccountAccount from '../account-account/account-account';
-class Account {
+import templateUrl from './account-profile.html';
+
+class AccountProfile {
     constructor($state, Auth) {
         this.Auth = Auth;
         this.$state = $state;
@@ -14,22 +13,18 @@ class Account {
         this.Auth.$signOut();
     }
 }
-const name = 'account';
-export default angular.module(name, [
-    uiRouter,
-    AccountProfile,
-    AccountAccount
-])
+const name = 'accountProfile';
+export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['$state', 'Auth', Account],
+        controller: ['$state', 'Auth', AccountProfile],
         bindings: {}
     })
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
-            .state('account', {
-                abstract:true,
-                template: '<account></account>',
+            .state('account.profile', {
+                url:'/profile',
+                template: '<account-profile></account-profile>',
                 resolve: {
                     // controller will not be loaded until $requireSignIn resolves
                     // Auth refers to our $firebaseAuth wrapper in the factory below
