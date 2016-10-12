@@ -1,0 +1,7 @@
+<a ng-repeat="provider in $ctrl.providers"
+    ng-click="$ctrl.logInWith(provider.name)"
+    ng-disabled="!provider.enabled"
+    class="button"
+    ng-class="provider.name">
+    {{ provider.name }}
+</a>
