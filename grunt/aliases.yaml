@@ -1,14 +1,23 @@
 default:
-- build
+- build_prod
 
-build:
+build_prod:
 - clean
 - copy
 - eslint
 - webpack
+- replace:prod
+- uglify
+
+build_dev:
+- clean
+- copy
+- eslint
+- webpack
+- replace:dev
 - uglify
 
 dev:
-- build
+- build_dev
 - connect
 - watch
