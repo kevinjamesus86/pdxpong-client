@@ -7,6 +7,7 @@ module.exports = {
         tasks: [
             'eslint',
             'webpack',
+            'replace:dev',
             'uglify'
         ]
     },

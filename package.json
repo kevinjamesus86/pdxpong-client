@@ -28,6 +28,7 @@
     "grunt-contrib-uglify": "2.0.0",
     "grunt-contrib-watch": "1.0.0",
     "grunt-eslint": "19.0.0",
+    "grunt-replace": "1.0.1",
     "grunt-webpack": "1.0.16",
     "less": "2.7.1",
     "less-loader": "2.2.3",

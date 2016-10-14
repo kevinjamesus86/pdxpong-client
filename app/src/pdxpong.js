@@ -21,6 +21,17 @@ const module = angular.module('pdxpong', [
 
 export default module.name;
 
+// Replaced at build time with:
+//
+// - grunt dev
+// - grunt watch => http://localhost:3000/
+//
+// - grunt       => https://pdxpong-api.herokuapp.com/
+//
+// Note: Travis CI runs `grunt` to build the app so we
+// need that task to drop in the prod url :+1:
+module.constant('apiBase', '@@apiBase');
+
 import templateUrl from './pdxpong.html';
 
 let vm = {};
