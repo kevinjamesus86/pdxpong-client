@@ -3,47 +3,35 @@ import './account-profile.less';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import templateUrl from './account-profile.html';
+import API from '../../services/api';
 
 class AccountProfile {
-    constructor($state, Auth, $scope) {
+    constructor($state, Auth, api) {
         this.Auth = Auth;
         this.$state = $state;
-        this.$scope = $scope;
-        this.profile = {
-            displayName: this.user.displayName,
-            photoURL: this.user.photoURL
-        }
+        this.api = api;
+
+        console.log(this.profile);
     }
     updateProfile() {
-
-        // firebaseAuth doesn't have this yet
-        this.user.updateProfile(this.profile).then(() => {
-            this.$scope.$apply();
-        }, (error) => {
-            this.error = error;
-        });
-
+        this.api.setProfile(this.user.uid, this.profile);
     }
 }
 const name = 'accountProfile';
 export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['$state', 'Auth', '$scope', AccountProfile],
+        controller: ['$state', 'Auth', API, AccountProfile],
         bindings: {
-            user: '='
+            user: '=',
+            profile: '='
         }
     })
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state('account.profile', {
                 url:'/profile',
-                template: '<account-profile user="$resolve.currentAuth"></account-profile>',
-                resolve: {
-                    "currentAuth": ["Auth", function(Auth) {
-                        return Auth.$requireSignIn();
-                    }]
-                }
+                template: '<account-profile user="$resolve.currentAuth" profile="$resolve.profile"></account-profile>'
             });
     }])
     .name;

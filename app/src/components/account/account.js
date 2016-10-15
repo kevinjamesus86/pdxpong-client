@@ -5,6 +5,8 @@ import uiRouter from 'angular-ui-router';
 import templateUrl from './account.html';
 import AccountProfile from '../account-profile/account-profile';
 import AccountAccount from '../account-account/account-account';
+import API from '../../services/api';
+
 class Account {
     constructor($state, Auth) {
         this.Auth = Auth;
@@ -32,8 +34,19 @@ export default angular.module(name, [
                 abstract:true,
                 template: '<account></account>',
                 resolve: {
-                    "currentAuth": ["Auth", function(Auth) {
+                    'currentAuth': ['Auth', function(Auth) {
                         return Auth.$requireSignIn();
+                    }],
+                    'profile': [API,'currentAuth','$q', function(api, currentAuth, $q) {
+                        return $q((resolve) => {
+                            api.getProfile(currentAuth.uid)
+                            .then((p) => {
+                                resolve(p);
+                            })
+                            .catch(() => {
+                                return api.setProfile(currentAuth.uid, {});
+                            });
+                        });
                     }]
                 }
             });
