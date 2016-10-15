@@ -3,21 +3,21 @@ import './leaderboard.less';
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import templateUrl from './leaderboard.html';
+import PlayerCard from '../player-card/player-card';
 
 class Leaderboard {
-    constructor($rootScope) {
-        this.testVal = 'AWESOME.';
-        this.thing = $rootScope;
+    constructor() {
     }
 }
 
 const name = 'leaderboard';
 export default angular.module(name, [
-    uiRouter
+    uiRouter,
+    PlayerCard
 ])
 .component(name, {
   templateUrl,
-  controller: ['$rootScope', Leaderboard]
+  controller: [Leaderboard]
 })
 .config(['$stateProvider', function($stateProvider) {
   $stateProvider
