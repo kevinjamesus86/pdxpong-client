@@ -4,8 +4,6 @@ const name = 'pdxpong-api';
 
 let retry = 5,
     token;
-
-
 export default angular.module(name, [])
     .factory('tokenInjector', function() {
         var tokenInjector = {

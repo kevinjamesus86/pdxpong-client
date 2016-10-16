@@ -7,7 +7,6 @@ import Leaderboard from './components/leaderboard/leaderboard';
 import Account from './components/account/account';
 import Auth from './services/auth';
 import Login from './components/login/login';
-import Register from './components/register/register';
 import Error from './components/error/error';
 import API from './services/api';
 
@@ -17,7 +16,6 @@ const module = angular.module('pdxpong', [
     Auth,
     Account,
     Login,
-    Register,
     Error,
     uiRouter,
     API

@@ -10,8 +10,6 @@ class AccountProfile {
         this.Auth = Auth;
         this.$state = $state;
         this.api = api;
-
-        console.log(this.profile);
     }
     updateProfile() {
         this.api.setProfile(this.user.uid, this.profile);

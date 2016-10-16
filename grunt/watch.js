@@ -13,12 +13,16 @@ module.exports = {
     },
     less: {
         files: 'app/**/*.less',
-        tasks: ['webpack']
+        tasks: [
+            'webpack',
+            'replace:dev'
+        ]
     },
     nghtml: {
         files: 'app/src/**/*.html',
         tasks: [
             'webpack',
+            'replace:dev',
             'uglify'
         ]
     },

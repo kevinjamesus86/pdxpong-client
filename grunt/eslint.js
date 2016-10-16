@@ -1,5 +1,5 @@
 module.exports = {
-    target: 'app/**/*.js',
+    target: "app/**/*.js",
     options: {
         rules: {
             "no-console": 0
