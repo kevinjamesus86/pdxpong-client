@@ -10,6 +10,10 @@ install:
   - npm install -g firebase-tools
   - npm install
 script:
-  - grunt build_prod
+  # lint on pull requests
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then grunt eslint; fi
+  # build on merge, commit, whatever
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then grunt build_prod; fi
 after_success:
-  - firebase deploy
+  # ship to firebase on merge, commit, whatever to master
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then firebase deploy; fi
