@@ -9,19 +9,16 @@ class ProviderLogins {
     this.Auth = Auth;
     this.providers = [
         {
-            name: 'google',
-            enabled: true
+            name: 'google'
         },
         {
-            name: 'github',
-            enabled: true
+            name: 'github'
         },
         {
             name: 'twitter'
         },
         {
-            name: 'facebook',
-            enabled: true
+            name: 'facebook'
         }
     ]
   }
