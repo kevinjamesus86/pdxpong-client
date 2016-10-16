@@ -2,7 +2,10 @@
 <h3>Linked Providers</h3>
 <div ng-repeat="(key, value) in $ctrl.providers">
     <label>
-        <input type="checkbox" ng-model="value.isLinked" ng-change="$ctrl.setProvider(value)">
+        <input type="checkbox"
+        ng-disabled="value.isLinked && $ctrl.onlyOneProvider()"
+        ng-model="value.isLinked"
+        ng-change="$ctrl.setProvider(value)">
         {{key}}
     </label>
 </div>

@@ -8,7 +8,6 @@ import templateUrl from './account-account.html';
 function isProviderEnabled(user, pro) {
     for (var provider in user.providerData) {
         if (user.providerData[provider].providerId === pro) {
-            console.log(pro + " is enabled");
             return true;
         }
     }
@@ -16,9 +15,10 @@ function isProviderEnabled(user, pro) {
 }
 
 class AccountAccount {
-    constructor($state, Auth, firebase) {
+    constructor($state, $scope, Auth, firebase) {
         this.Auth = Auth;
         this.$state = $state;
+        this.$scope = $scope;
 
         let goog = new firebase.auth.GoogleAuthProvider(),
             fb = new firebase.auth.FacebookAuthProvider(),
@@ -44,20 +44,33 @@ class AccountAccount {
         };
     }
 
+    onlyOneProvider() {
+        return this.user.providerData.length === 1;
+    }
+
     setProvider(pro) {
-        let isCurrentlyEnabled = isProviderEnabled(this.user, pro.provider);
+        let isCurrentlyEnabled = isProviderEnabled(this.user, pro.provider.providerId);
         if (isCurrentlyEnabled != pro.isLinked) {
             if (pro.isLinked) {
                 this.user.linkWithPopup(pro.provider)
-                    .then((result) => {
-                        // do we need to do anything here?
-                        console.log(result);
+                    .then(() => {
+                        this.$scope.$apply();
                     })
                     .catch((error) => {
-                        pro.isLinked = false;
-                        console.error(error);
-                        // do something about Error
+                        this.$scope.$apply(() => {
+                            pro.isLinked = false;
+                            console.error(error);
+                        });
                     });
+            } else {
+                // unlink stuffs
+                this.user.unlink(pro.provider.providerId)
+                    .then(() => {
+                        this.$scope.$apply();
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
             }
         }
     }
@@ -67,7 +80,7 @@ const name = 'accountAccount';
 export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['$state', 'Auth', 'firebase', AccountAccount],
+        controller: ['$state', '$scope', 'Auth', 'firebase', AccountAccount],
         bindings: {
             user: '='
         }
