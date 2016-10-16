@@ -1,0 +1,8 @@
+<h2>Profile</h2>
+<form name="profileForm" ng-submit="$ctrl.updateProfile()">
+    <div>
+        <label for="displayName">Name</label>
+        <input name="displayName" type="text" ng-model="$ctrl.profile.displayName">
+    </div>
+    <input type="submit" value="Update">
+</form>
