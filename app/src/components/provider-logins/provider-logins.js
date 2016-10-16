@@ -13,13 +13,15 @@ class ProviderLogins {
             enabled: true
         },
         {
-            name: 'github'
+            name: 'github',
+            enabled: true
         },
         {
             name: 'twitter'
         },
         {
-            name: 'facebook'
+            name: 'facebook',
+            enabled: true
         }
     ]
   }
