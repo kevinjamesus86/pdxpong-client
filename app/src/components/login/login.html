@@ -1,17 +1,2 @@
-<form name="logForm" ng-submit="$ctrl.login()">
-    <h1>Login</h1>
-    <div class="">
-        <label for="email">Email</label>
-        <input required placeholder="someone@something.com" type="email" ng-model="$ctrl.email">
-    </div>
-    <div class="">
-        <label for="password">Password</label>
-        <input required minlength="6" placeholder="6+ characters" type="password" ng-model="$ctrl.password">
-    </div>
-    <div class="row s-b">
-        <input ng-disabled="!logForm.$valid" type="submit" name="name" value="Log In">
-        <span class="separator">Or Login Using:</span>
-        <provider-logins redirect-to="leaderboard"></provider-logins>
-    </div>
-</form>
-{{$ctrl.state}}
+<h1>Login With One of the Following Providers</h1>
+<provider-logins redirect-to="leaderboard"></provider-logins>

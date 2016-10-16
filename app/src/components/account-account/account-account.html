@@ -1,24 +1,11 @@
 <h2>Account Information</h2>
-
-<form name="resetPassForm" ng-submit="$ctrl.updatePassword()">
-    <h4>Update Password</h4>
-    <div class="">
-        <label for="currentPass">
-            Current password
-        </label>
-        <input type="password" name="currentPass" ng-model="$ctrl.currentPass">
-    </div>
-    <div class="">
-        <label for="newPass">
-            New password
-        </label>
-        <input type="password" name="newPass" ng-model="$ctrl.newPass">
-    </div>
-    <div class="">
-        <label for="newPassConfirm">
-            Confirm New password
-        </label>
-        <input type="password" name="newPassConfirm" ng-model="$ctrl.newPassConfirm">
-    </div>
-    <input type="submit" value="Set New Password">
-</form>
+<h3>Linked Providers</h3>
+<div ng-repeat="(key, value) in $ctrl.providers">
+    <label>
+        <input type="checkbox"
+        ng-disabled="value.isLinked && $ctrl.onlyOneProvider()"
+        ng-model="value.isLinked"
+        ng-change="$ctrl.setProvider(value)">
+        {{key}}
+    </label>
+</div>
