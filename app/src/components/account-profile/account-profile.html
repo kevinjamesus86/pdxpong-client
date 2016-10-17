@@ -1,8 +1,34 @@
-<h2>Profile</h2>
 <form name="profileForm" ng-submit="$ctrl.updateProfile()">
-    <div>
-        <label for="displayName">Name</label>
-        <input name="displayName" type="text" ng-model="$ctrl.profile.displayName">
+    <div class="avatar">
+        <img ng-src="{{$ctrl.profile.avatar}}" alt="{{$ctrl.profile.name}}">
+        <label for="file-upload">Change Image</label>
+        <input name="file-upload" id="file-upload" type="file" accept="image/*" file-on-change="$ctrl.handleImage">
+        <progress ng-if="$ctrl.uploadProgress" value="{{$ctrl.uploadProgress}}" max="100">
+            uploading file...
+        </progress>
     </div>
-    <input type="submit" value="Update">
+    <div class="fields">
+        <div>
+            <label for="name">
+                Name
+                <span class="error" ng-if="profileForm.name.$error.required">
+                    Name is required
+                </span>
+            </label>
+            <input required name="name" type="text" ng-model="$ctrl.profile.name">
+        </div>
+        <div>
+            <label for="nickname">Nickname</label>
+            <input name="nickname" type="text" ng-model="$ctrl.profile.nickname">
+        </div>
+        <div>
+            <label for="jobTitle">Job Title</label>
+            <input name="jobTitle" type="text" ng-model="$ctrl.profile.jobTitle">
+        </div>
+        <div>
+            <label for="department">Department</label>
+            <input name="department" type="text" ng-model="$ctrl.profile.department">
+        </div>
+        <input type="submit" value="Update">
+    </div>
 </form>
