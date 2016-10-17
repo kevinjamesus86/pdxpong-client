@@ -11,5 +11,8 @@
   },
   "rules": {
     "strict": 1
+  },
+  "globals": {
+    "firebase": true
   }
 }
