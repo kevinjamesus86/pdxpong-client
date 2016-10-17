@@ -2,28 +2,29 @@
 @import (reference) '../../common/variables';
 
 account {
-    .container;
-    .row;
-    align-items: stretch;
-    .sidebar {
-        width:250px;
-        margin-top:@gutter;
-        margin-right:@gutter;
-
+    .menu {
+        background-color: @mid-grey;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
         ul {
-            margin:0;
+            margin:0 auto;
             padding:0;
+            text-align: center;
         }
         li {
             list-style: none;
+            display: inline-block;
         }
         a {
-            font-size: 16px;
-            display:block;
-            padding:@gutter/2 @gutter;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color:@white;
+            display:inline-block;
+            padding:@gutter/2 @gutter*2;
         }
     }
     .main {
+        .container;
         .flex;
     }
 }

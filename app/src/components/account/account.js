@@ -8,9 +8,8 @@ import AccountAccount from '../account-account/account-account';
 import API from '../../services/api';
 
 class Account {
-    constructor($state, Auth) {
+    constructor(Auth) {
         this.Auth = Auth;
-        this.$state = $state;
     }
     logout() {
         this.Auth.$signOut();
@@ -24,29 +23,33 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl,
-        controller: ['$state', 'Auth', Account],
+        controller: ['Auth', Account],
         bindings: {
+
         }
     })
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider
             .state('account', {
-                abstract:true,
+                abstract: true,
                 template: '<account></account>',
                 resolve: {
                     'currentAuth': ['Auth', function(Auth) {
                         return Auth.$requireSignIn();
                     }],
-                    'profile': [API,'currentAuth','$q', function(api, currentAuth, $q) {
-                        return $q((resolve) => {
-                            api.getProfile(currentAuth.uid)
-                            .then((p) => {
-                                resolve(p);
+                    'profile': ['currentAuth', API, '$q', function(auth, api, $q) {
+                        return $q(function(resolve) {
+                            api.getProfile(auth.uid)
+                            .then(function(profile) {
+                                resolve(profile);
                             })
-                            .catch(() => {
-                                return api.setProfile(currentAuth.uid, {});
+                            .catch(function() {
+                                // even when the api doesn't find anything,
+                                // we want to move forward
+                                // this might not need to be a resolve
+                                resolve();
                             });
-                        });
+                        })
                     }]
                 }
             });
