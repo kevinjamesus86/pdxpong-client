@@ -15,8 +15,7 @@ function isProviderEnabled(user, pro) {
 }
 
 class AccountAccount {
-    constructor($state, $scope, Auth, firebase) {
-        this.Auth = Auth;
+    constructor($state, $scope) {
         this.$state = $state;
         this.$scope = $scope;
 
@@ -24,6 +23,7 @@ class AccountAccount {
             fb = new firebase.auth.FacebookAuthProvider(),
             tw = new firebase.auth.TwitterAuthProvider(),
             gh = new firebase.auth.GithubAuthProvider();
+
         this.providers = {
             'google': {
                 provider: goog,
@@ -80,7 +80,7 @@ const name = 'accountAccount';
 export default angular.module(name, [uiRouter])
     .component(name, {
         templateUrl,
-        controller: ['$state', '$scope', 'Auth', 'firebase', AccountAccount],
+        controller: ['$state', '$scope', AccountAccount],
         bindings: {
             user: '='
         }

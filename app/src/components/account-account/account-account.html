@@ -1,11 +1,9 @@
-<h2>Account Information</h2>
-<h3>Linked Providers</h3>
-<div ng-repeat="(key, value) in $ctrl.providers">
-    <label>
-        <input type="checkbox"
-        ng-disabled="value.isLinked && $ctrl.onlyOneProvider()"
-        ng-model="value.isLinked"
-        ng-change="$ctrl.setProvider(value)">
-        {{key}}
-    </label>
+<h2>Linked Accounts</h2>
+<div class="row" ng-repeat="(key, value) in $ctrl.providers">
+    <input type="checkbox"
+    name="{{key}}-check" id="{{key}}-check"
+    ng-disabled="value.isLinked && $ctrl.onlyOneProvider()"
+    ng-model="value.isLinked"
+    ng-change="$ctrl.setProvider(value)">
+    <label for="{{key}}-check">{{key}}</label>
 </div>
