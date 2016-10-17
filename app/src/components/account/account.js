@@ -25,7 +25,6 @@ export default angular.module(name, [
         templateUrl,
         controller: ['Auth', Account],
         bindings: {
-
         }
     })
     .config(['$stateProvider', function($stateProvider) {

@@ -1,0 +1,65 @@
+@import (reference) '../../common/util';
+@import (reference) '../../common/variables';
+
+player-card {
+    text-align: center;
+    display: block;
+    letter-spacing: 2px;
+    .image {
+        position: relative;
+        display: inline-block;
+        margin:@gutter 0;
+    }
+    .ranking {
+        display:block;
+        background-color: @blue;
+        color:@white;
+        font:italic 23px/35px BigNoodle;
+        height:35px;
+        width:35px;
+        border-radius: 50%;
+        text-align: center;
+        text-indent: -3px; // italics make it look off-centered
+        position: absolute;
+        top:-5px;
+        left:-20px;
+        letter-spacing: 1px;
+    }
+    .avatar {
+        border-radius: 50%;
+        height:75px;
+        width: 75px;
+    }
+    .name {
+        font:italic 55px BigNoodle;
+        color:@white;
+        margin:0;
+    }
+    .nickname {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 18px;
+        margin:@gutter/2 0;
+        &:before {
+            content: open-quote;
+            display:inline;
+        }
+        &:after {
+            content:close-quote;
+            display: inline;
+        }
+    }
+    hr {
+        width:50px;
+        border:0;
+        margin:@gutter*1.5 auto;
+        border-top:1px solid @mid-grey;
+    }
+    .team {
+        margin:0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 18px;
+        color:@mid-grey;
+    }
+}

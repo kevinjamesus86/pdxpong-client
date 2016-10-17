@@ -1,0 +1,20 @@
+<div>
+    <div class="image">
+        <span ng-if="$ctrl.rank" class="ranking">
+            {{$ctrl.rank | rankNumberFilter}}
+        </span>
+        <img class="avatar" ng-src="{{$ctrl.profile | userImageFilter}}">
+    </div>
+    <h1 class="name">
+        {{$ctrl.profile | userNameFilter}}
+    </h1>
+    <h2 ng-if="$ctrl.profile.nickname" class="nickname">
+        {{$ctrl.profile.nickname}}
+    </h2>
+    <hr ng-if="$ctrl.profile.department || $ctrl.profile.jobTitle">
+    <h3 class="team">
+        {{$ctrl.profile.department}}
+        <br ng-if="$ctrl.profile.department && $ctrl.profile.jobTitle">
+        {{$ctrl.profile.jobTitle}}
+    </h3>
+</div>
